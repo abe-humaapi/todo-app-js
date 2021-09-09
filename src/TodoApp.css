@@ -1,0 +1,50 @@
+
+   .big-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: calc(10px + 2vmin);
+        color: #1a2b42;
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: var(--todo-app-background-color);
+      }
+
+      .set
+      {
+        width:288px;
+        height:90px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background-color:#FFFFFF;
+        box-shadow:0px 3px 6px #cac2c2;
+        position:relative;
+        right:550px;
+        border-radius:45px;
+        margin-top:30px;
+        padding:0px 0px;
+      }
+      .set div {
+      margin: 0px 5px;
+      transition: transform 0.5s;
+    }
+    
+    .set div:hover {
+      transform: scale(1.1);
+    }
+
+    .BtN{
+      display:flex;
+      position:relative;
+      right:350px;
+      bottom:60px;
+    }
+    .BtN div{
+      margin: 0px 5px;
+    }
+    .BtN div:hover{
+      transform: scale(1.1);
+    }  
