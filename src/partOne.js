@@ -1,15 +1,10 @@
 // this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
 /** @jsxImportSource @emotion/react */
 
-import  { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { css } from '@emotion/react'
 import './partOne.css';
 import './TodoApp';
-
-// const base = css`
-//  background-color:blue;
-// `;
-// console.log(base);
 
 function PartOne(props) {
 
@@ -22,10 +17,10 @@ function PartOne(props) {
     inputRef.current.value = ""
 
   }
-  const divStyle = {
-          backgroundColor: props.fill
-        }
 
+  const divStyle = {
+    backgroundColor: props.fill
+  }
 
   return (
     <div className="Container" >
