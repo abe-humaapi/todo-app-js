@@ -1,6 +1,10 @@
+/** @jsxImportSource @emotion/react */
 import React, { useState, useEffect } from 'react';
-import './TodoApp.css';
+import { css } from '@emotion/react'
 import PartOne from './partOne';
+
+
+
 function TodoApp(props) {
   const [shapes] = useState([
     {
@@ -33,15 +37,62 @@ function TodoApp(props) {
       console.log("Am disconnected");
     };
     },[isConnected]);
+    /////// css ////////
+const bigContainer=css`
+ min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: calc(10px + 2vmin);
+        color: #1a2b42;
+        max-width: 960px;
+        margin: 0 auto;
+        text-align: center;
+        background-color: var(--todo-app-background-color); 
+`
+const set =css`
+width:288px;
+        height:90px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        background-color:#FFFFFF;
+        box-shadow:0px 3px 6px #cac2c2;
+        position:relative;
+        right:550px;
+        border-radius:45px;
+        margin-top:30px;
+        padding:0px 0px;
+`
+const setDiv= css`
+margin: 0px 5px;
+      transition: transform 0.5s;
+      &:hover {
+      transform: scale(1.1);
+    }
+  
+`
+const Btn=css`
+ display:flex;
+      position:relative;
+      right:350px;
+      bottom:60px;
+`
+const Btndiv = css`
+margin: 0px 5px; 
+&:hover{
+      transform: scale(1.1);
+    }  
+`
 
   return (
 
-    <div className="big-container">
-      <div className="set">
+    <div css={bigContainer}>
+      <div css={set}>
         {shapes.map(
           (shape, index) => {
             return (
-              <div key={index} onClick={() => setColor(shape.fill)} className="formOne">
+              <div key={index} onClick={() => setColor(shape.fill)} css={setDiv}>
                 <svg
                   id="Composant_6_1"
                   data-name="Composant 6 – 1"
@@ -57,8 +108,8 @@ function TodoApp(props) {
           })
         }
       </div>
-      <div className="BtN">
-        <div onClick={() => setIsConnected(false)} className="one">
+      <div css={Btn}>
+        <div onClick={() => setIsConnected(false)} css={Btndiv}>
           <svg id="Button" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
             <circle id="Container" cx="15.5" cy="15.5" r="15.5" fill="#ff7482" />
             <path id="Tracé_2" data-name="Tracé 2" d="M5.937,11.784V23.327H19.669V11.784" transform="translate(2.697)" fill="none" stroke="#fff" strokewidth="1" />
@@ -72,7 +123,7 @@ function TodoApp(props) {
             </g>
           </svg>
         </div>
-        <div onClick={() => setIsConnected(true)} className="two">
+        <div onClick={() => setIsConnected(true)} css={Btndiv}>
           <svg id="Button" xmlns="http://www.w3.org/2000/svg" width="31" height="31" viewBox="0 0 31 31">
             <circle id="Container" cx="15.5" cy="15.5" r="15.5" fill="#7494ff" />
             <g id="Cross" transform="translate(-782 -233)">

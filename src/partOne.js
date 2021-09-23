@@ -1,8 +1,9 @@
 // this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
 /** @jsxImportSource @emotion/react */
 
-import { useState, useEffect, useRef } from 'react';
-import { css } from '@emotion/react'
+import { useState, useRef } from 'react';
+import { css } from '@emotion/react' 
+
 import './partOne.css';
 import './TodoApp';
 
@@ -17,21 +18,83 @@ function PartOne(props) {
     inputRef.current.value = ""
 
   }
-
+//css 
   const divStyle = {
     backgroundColor: props.fill
   }
+  const FistItem = css`
+  display:flex;
+    justify-content:space-around;
+    align-items:center;
+    background-color:#FFFFFF;
+    margin-top:30PX;    
+    width:287px;
+    height:56px;
+    border-radius: 25px;
+    box-shadow: 0px 3px 6px #cac2c2;
+`
+const NewItem = css`
+border:0px solid #FFFFFF; 
+     margin: 7px 8PX;   
+     width:217px;
+     height:40px;
+     border-radius: 30px;
+     box-shadow: 0px 2px 6px #dddddd;
+     outline:none;
+     &:hover {
+      background-color:#d3b6f092;
+  }
+  &:focus {
+    background-color:#FBFBFB;
+        border:1px solid #7494FF;
+  }
+` 
+const Undo= css`
+width:287px;
+        height:241px;
+        border-radius:25px;
+        box-shadow: 0px 3px 6px #cac2c2;
+        overflow: auto;
+        margin-top:20px;
+        align-items:center;
+`
+const Output = css`
+   background-color:#FFFFFF; 
+        padding-top:10px;  
+        align-self:center;
+        margin: 10px auto;   
+        width:217px;
+        height:40px;
+        border-radius: 30px;
+        box-shadow: 0px 2px 6px #dddddd;
+        outline:none;
+        overflow:hidden;
+        
+`
+const botom = css`
+border-radius:50%;
+        border:#707070;
+        margin:  13px 2PX;
+        width:30px;
+        height:32PX;
+        color:#FBFBFB;
+        font-size:20px;
+        background-color:#7494FF;
+        &:hover {
+    box-shadow: 2px 4px 8px #cac2c2;
+  }
+`
 
   return (
     <div className="Container" >
-      <div style={divStyle} className="FistItem" >
-        <input className="NewItem" ref={inputRef}  ></input>
-        <button onClick={addToDo} > +</button>
+      <div style={divStyle} css={FistItem}>
+        <input css={NewItem} ref={inputRef}  ></input>
+        <button css={botom} onClick={addToDo} > +</button>
       </div>
-      <div className="Undo" >
+      <div css={Undo} >
         {
           listItems.map((item, index) =>
-            <p className="Output" key={index}>{item}</p>)
+            <p css={Output} key={index}>{item}</p>)
         }
       </div>
     </div>
@@ -41,48 +104,3 @@ export default PartOne;
 
 
 
-// export default class PartOne extends Component {
-
-//   constructor(props) {
-//     super(props);
-//     this.inputRef = createRef();
-//     this.state = {
-//       listItems: [],
-//     };
-//     this.addToDo = this.addToDo.bind(this);
-//   }
-
-//   addToDo() {
-//     const inputValue = this.inputRef.current.value;
-//     // This is the #1 solution to add item in Array state
-//     //  const listItemClone = this.state.listItems.slice()
-//     // listItemClone.push(inputValue)
-//     // this.setState({listItems:listItemClone});
-
-//     //This is the #2 solution (best) to add item in Array state
-//     this.setState({ listItems: [...this.state.listItems, inputValue] });
-//     this.inputRef.current.value = "";
-//   }
-
-//   render() {
-//     const element = this.state.listItems.map((item, index) =>
-//       <p className="Output" key={index}>{item}</p>)
-//     const divStyle = {
-//       backgroundColor: this.props.fill
-//     }
-//     return (
-
-//       <div className="Container">
-//         <div style={divStyle} className="FistItem">
-//           <input className="NewItem" ref={this.inputRef}  ></input>
-//           <button onClick={this.addToDo} > +</button>
-
-//         </div>
-//         <div className="Undo">
-//           {element}
-//         </div>
-//       </div>
-//     )
-//   }
-
-// }
