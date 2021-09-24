@@ -2,9 +2,8 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState, useRef } from 'react';
-import { css } from '@emotion/react' 
+import { css } from '@emotion/react'
 
-import './partOne.css';
 import './TodoApp';
 
 function PartOne(props) {
@@ -18,23 +17,21 @@ function PartOne(props) {
     inputRef.current.value = ""
 
   }
-//css 
-  const divStyle = {
-    backgroundColor: props.fill
-  }
+  //css 
   const FistItem = css`
-  display:flex;
+    display:flex;
     justify-content:space-around;
     align-items:center;
-    background-color:#FFFFFF;
+    background-color:${props.fill};
     margin-top:30PX;    
     width:287px;
     height:56px;
     border-radius: 25px;
     box-shadow: 0px 3px 6px #cac2c2;
+
 `
-const NewItem = css`
-border:0px solid #FFFFFF; 
+  const NewItem = css`
+     border:0px solid #FFFFFF; 
      margin: 7px 8PX;   
      width:217px;
      height:40px;
@@ -45,21 +42,31 @@ border:0px solid #FFFFFF;
       background-color:#d3b6f092;
   }
   &:focus {
-    background-color:#FBFBFB;
+     background-color:#FBFBFB;
         border:1px solid #7494FF;
   }
-` 
-const Undo= css`
-width:287px;
+`
+  const Undo = css`
+        
+        width:287px;
         height:241px;
         border-radius:25px;
         box-shadow: 0px 3px 6px #cac2c2;
         overflow: auto;
         margin-top:20px;
         align-items:center;
+        ::-webkit-scrollbar {
+        width: 7px;   
+      }
+
+::-webkit-scrollbar-thumb {
+  background-color:lightgrey;
+  border-radius:20px; 
+  
+} 
 `
-const Output = css`
-   background-color:#FFFFFF; 
+  const Output = css`
+        background-color:#FFFFFF; 
         padding-top:10px;  
         align-self:center;
         margin: 10px auto;   
@@ -69,12 +76,11 @@ const Output = css`
         box-shadow: 0px 2px 6px #dddddd;
         outline:none;
         overflow:hidden;
-        
 `
-const botom = css`
-border-radius:50%;
+  const botom = css`
+        border-radius:50%;
         border:#707070;
-        margin:  13px 2PX;
+        margin:  13px 2px;
         width:30px;
         height:32PX;
         color:#FBFBFB;
@@ -86,10 +92,10 @@ border-radius:50%;
 `
 
   return (
-    <div className="Container" >
-      <div style={divStyle} css={FistItem}>
-        <input css={NewItem} ref={inputRef}  ></input>
-        <button css={botom} onClick={addToDo} > +</button>
+    <div className="Container">
+      <div css={FistItem}>
+        <input css={NewItem} ref={inputRef}/>
+        <button css={botom} onClick={() => addToDo} > +</button>
       </div>
       <div css={Undo} >
         {
