@@ -95,7 +95,7 @@ function PartOne(props) {
     <div className="Container">
       <div css={FistItem}>
         <input css={NewItem} ref={inputRef}/>
-        <button css={botom} onClick={() => addToDo} > +</button>
+        <button css={botom} onClick={() => addToDo()} > +</button>
       </div>
       <div css={Undo} >
         {
